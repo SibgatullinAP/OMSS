@@ -197,3 +197,81 @@ $$ \begin{cases}
 3. $z = e^{q w}, \ q \in \mathbb{R} , \quad w = \varphi + i \psi$. Таким образом $z = e^{q \varphi} e^{i q \psi}$, при этом $e^{i q \psi} = const$, радиус при этом пробегаем все диагонали $\varphi$
 
  Если $z$ чисто мнимое , то получаем течение - вихри. Соответствует рисунку 2.
+
+\begin{center}
+	\textit{\underline{Формула Жуковского.}}
+\end{center}
+
+\begin{wrapfigure}{r}{0.2\textwidth}
+	\includegraphics[width=0.2\textwidth]{14/pic_8.png}
+	\caption{\label{ris:image14.8}}
+\end{wrapfigure}
+
+Рассмотрим $w=v_{\infty}(z + \frac{R^2}{z})$. Оно переводит окружность круга радиуса $R$ на некоторый отрезок . $w' = v_{\infty} ( 1 -  \frac{R^2}{z^2})$ , $w' \rightarrow v_{\infty} $ на бесконечности. Линии тока ведут себя как на рисунке 8. 
+
+Также можем добавить к w функцию и рассмотреть следующий потенциал (круговые линии на рисунке 8 ) . Итого $w = v_{\infty}(z + \frac{R^2}{z}) + \frac{\Gamma}{2 \pi i} \ln z$. 
+
+\begin{wrapfigure}{l}{0.15\textwidth}
+	\includegraphics[width=0.15\textwidth]{14/pic_9.png}
+	\caption{\label{ris:image14.9}}
+\end{wrapfigure}
+$$ $$
+
+Вообще говоря $\Gamma$ произвольное, но надо выбрать единственное. По постулату Жуковского-Чаплыгина $\Gamma$ выбирается так чтобы в "острой", особенной точке скорость была равна нулю, то есть переходила в критическую точку. Таким образом можно выбрать единственное $\Gamma$. С гамма - циркуляцией получится картинка 9 с критической точкой (типа седло).
+
+\newpage
+\ \\
+
+Рассмотрим произвольную функцию $w(z)$ и разложим в ряд Лорана $w' = ... + \frac{c_{-2}}{z^2} + \frac{c_{-1}}{z} + c_0 + c_1 z + c_2 z^2 + ... $. При устремлении z к бексонечности $w'$ должно получиться равным сопряженной скорости, таким образом $c_1 = c_2 = 0$, а $c_0 = \bar{v}_{\infty}$
+
+Если взять циркуляцию от $w'$ , то получим $\Gamma = c_1 2 \pi i $ (по формуле) . $c_{-1} = \frac{\Gamma}{2 \pi i}$
+
+\begin{wrapfigure}{r}{0.15\textwidth}
+	\includegraphics[width=0.15\textwidth]{14/pic_9.png}
+	\caption{\label{ris:image14.10}}
+\end{wrapfigure}
+$$ $$
+
+Чему равна сила , с действующая на данное тело ? 
+
+Обозначим ее $R = X + i Y = - 	\oint \limits_{C} p \overrightarrow{n} d \overrightarrow{e} = - \oint \limits_{C} p e^(i\frac{pi}{2} + i\theta) d | \overrightarrow{e} |$ . Причем $p \in \mathbb{R}$
+
+Что такое $dz$ ? $dz = e^{i \theta} d | \overrightarrow{e} |$, $w'$  в свою очередь, $w' = u -i \varv$ -  комплесносопряженная скорость 
+
+Также вспомним интеграл Бернулли
+$$ \begin{cases}
+	p + p \frac{|v|^2}{2} = const \\
+	v = u + i \varv
+\end{cases},$$
+
+Интеграл по кругу от константы по контуру равен нулю 
+
+$- \oint \limits_{C} p e^(i\frac{pi}{2} + i\theta) d | \overrightarrow{e} | = -i \oint  \limits_{C} p dz = \frac{p i}{2} \oint  \limits_{C} |v|^2 dz =  \frac{p i}{2} \oint  \limits_{C} w' \bar{w}' d z$
+
+Далее подробнее рассмотрим $w'$ , $\bar{w}' = v, \ \bar{d z} = e^{-i \theta} |d \overrightarrow{e} |$
+
+$\bar{w}' \bar{dz} = |v| e^{i \theta} |d \overrightarrow{e} | e^{-i \theta} = w' dz$
+
+$w' = ... + \frac{c_2}{z^2} + \frac{c_1}{z} + c_0 \ \rightarrow \ w'^2 = ... + \frac{2 c_1 c_0}{z} + ...$. Нас интересуют только вычеты , смотрим где $\frac{1}{z}$ 
+
+В итоге получаем : 
+
+$\bar{R} =  \frac{p}{2 i} \oint \limits_{C} \bar{w}'  w'  \bar{d z} =  \frac{p}{2 i} \oint \limits_{C} w'^2 dz =   \frac{p}{2 i} 2 c_{-1} c_0 2 \pi i = \rho c_{-1} c_0 2 \pi$
+
+$ c_0 = \bar{v}_{\infty}$
+
+$c_{-1} = \frac{\Gamma}{2 \pi i} $
+
+Значит , $\bar{R} = - \rho \frac{\Gamma}{i} v_{\infty} $ (- на лекциях где-то потеряли, ну а я писал конспект по лекциям)
+
+В итоге , Формула Жуковского 
+
+$$
+R = -i \rho v_{\infty} \Gamma
+$$
+
+Если скорость направлена в точности по оси x (то есть действительная часть равна 0) , то 
+
+$X = 0$ - парадокс Даламбера , сила , действуюшая по направлению набегающей скорости равна нулю
+
+$Y = -\rho v_{\infty} \Gamma $ - подъемная сила. Сила , напраленная перпендикулярно набегающей скорости , пропорциональна скорости и завихренности . Чем больше завихренности крыла, тем больше сила . 
