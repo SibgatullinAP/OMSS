@@ -1,2 +1,277 @@
 \newpage
-\section{Билет 14. Безвихревое движение идеальной жидкости в трехмерном и в двумерном случаях. Примеры потенциалов. Применение теории функции комплексного переменного для решения задач плоского движения идеальной несжимаемой жидкости. Формула Жуковского.}
+\section{Безвихревое движение идеальной жидкости в трехмерном и в двумерном случаях. Примеры потенциалов. Применение теории функции комплексного переменного для решения задач плоского движения идеальной несжимаемой жидкости. Формула Жуковского.}
+
+\begin{center}
+	\textit{\underline{Напоминание.}}
+\end{center}
+
+\text{Рассматриваем случай несжимаемой жидкости, то есть такой что, $\rho = const$}
+
+\text{Вспомним формулу Коши-Гельмгольца. Рассмотрим точку $M$ с координатами $x^{i}$ и ее малую окрестность , точка $M'$ с к-ми $x^{i} + dx^{i}$ . По формуле Тейлора имеем}
+
+$$
+\overrightarrow{v}(M^{'}) = \overrightarrow{v}(x^{i}) + \frac{\partial \overrightarrow{v}}{\partial x^{i}} dx^{i} = \overrightarrow{v}(M) + \nabla_{i} v_{j}dx^{i} \overrightarrow{\text{э}}^{j} = \overrightarrow{v}(M) + \frac{1}{2} (\nabla_i v_j + \nabla_j v_i) dx^{i} \overrightarrow{\text{э}}^{j} + \frac{1}{2} (\nabla_i v_j - \nabla_j v_i) dx^{i} \overrightarrow{\text{э}}^{j}
+$$
+
+где $\frac{1}{2} (\nabla_i v_j + \nabla_j v_i) = e_{ij}$ - компоненты тензора скорости деформации. Введем 
+$$
+\frac{1}{2} (\nabla_i v_j - \nabla_j v_i) = w_{ij}
+$$
+где $w_{ij}$ компоненты тензора вихря 
+
+Введем вектор $w$, вектор вихря :
+$$
+w^{k} = \frac{1}{\sqrt{g}}w_{ij}
+$$
+где (i,j,k) - круговая перестановка (1,2,3)
+
+Таким образом, формула Коши-Гельмагольца, это : 
+
+$$
+\overrightarrow{v}(M^{'}) = \overrightarrow{v}(M) + e_{ij} dx^{i} \overrightarrow{\text{э}}^{j} + [\overrightarrow{w} \times d\overrightarrow{r}]
+$$
+
+Движение называется вихревым, если $\overrightarrow{w} \neq 0$. Движение называется безвихревым, если $\overrightarrow{w} = 0$
+
+\begin{center}
+	\textit{\underline{Потенциал скорости.}}
+\end{center}
+
+Потенциал скорости - такая функция $\varphi$ , что для вектора скорости $\overleftrightarrow{v}$ выполнено 
+$$
+\overrightarrow{v} = grad \varphi, \ v_i = \nabla_i \varphi = \frac{\partial \varphi}{\partial x^i}
+$$
+в декартовых к-тах
+$$
+v_x = \frac{\partial \varphi}{\partial x}, \ v_y = \frac{\partial \varphi}{\partial y}, \ v_z = \frac{\partial \varphi}{\partial z}
+$$
+
+\textbf{Утверждение.} $\overrightarrow{v} = grad \varphi \Leftrightarrow \overrightarrow{w} = 0$
+
+\newpage
+Уравнение неразрывности 
+$$
+\frac{\partial \rho}{\partial t} + div(\rho \overrightarrow{v}) = 0
+$$
+при $\rho = 1$  приобретает вид $div( \overrightarrow{v}) = 0 $ . Отсюда следует , что в несжимаемой жидкости потенциал скорости удовлетворяет уравнению Лапласа $\Delta \varphi = 0$
+
+Граничные условия задаются разные , зачастую ставятся условия непротекания , то есть $v_n |_{\Sigma} = 0$. В свою очередь это соответствует системе 
+$$
+\Delta \varphi = 0
+$$
+$$
+\frac{\partial \varphi}{\partial n} |_{\Sigma} = 0
+$$
+
+\begin{wrapfigure}{r}{0.2\textwidth}
+	\includegraphics[width=0.2\textwidth]{14/pic_1.png}
+	\caption{\label{ris:image14.1}}
+\end{wrapfigure}
+
+\begin{center}
+	\textit{\underline{Примеры потенциалов.}}
+\end{center}
+
+Тут мы рассмотрим примеры различных функций $\varphi $. Рассматриваем задачу с набегающим с скоростью $\overrightarrow{v}_{\infty}$ однородным потоком на (как мы считаем покоящееся) тело.  Поверхность = $\Sigma$ и $\infty$  , т. о. $v_{\eta \leftarrow \infty} = v_\infty$ . Заметим, что задача линейная и потому складывая решения мы получим снова решение данной задачи.
+
+1. Рассмотрим $\varphi_0 = \overrightarrow{v}_{\infty} x$, таким образом $grad \varphi = 0$ - все компоненты равны 0 . Это ситуация постоянного, однородного течения (течения на бесконечности). То , к чему стремится задача обтекания тела. Линии тока - прямые линии $z=y=const$
+
+\begin{wrapfigure}{r}{0.2\textwidth}
+	\includegraphics[width=0.2\textwidth]{14/pic_2.png}
+	\caption{\label{ris:image14.2}}
+\end{wrapfigure}
+
+2. Рассмотрим $\varphi_1 = \frac{q}{r}, \ r = sqrt(x^2+y^2+z^2), \ q \ \text{это некоторая константа}$. Рассматриваем сферическую систему координат. Имеем в такой системе зависимость только от радиуса - имеем одну радиальную компоненту скорости $v_r = \frac {\partial \varphi_1 } {\partial r}= -\frac{\partial q}{\partial r^2}.$ Линии тока  на рисунке  2 - по напрвлению r $\theta = \varphi_1 = conts$. Если $q < 0$ это источник, если $q > 0$ это сток. $div \overrightarrow{v} = 0$, можем проинтегрировать по  сфере $Q = \int\limits_{S} \overrightarrow{v} d \overrightarrow{s} $ , получим $\varphi_1 =- \frac{Q}{4\Pi r}$
+
+\begin{wrapfigure}{r}{0.2\textwidth}
+	\includegraphics[width=0.2\textwidth]{14/pic_3.png}
+	\caption{\label{ris:image14.3}}
+\end{wrapfigure}
+
+3. Можем рассмотреть $\varphi_2 = \frac{\partial \varphi_1} {\partial x}$.  Это диполь . Линии тока , получающиеся при данном потенциале, приведены на рисунке 3.
+
+
+4. Можем сложить прошлые потенциалы и получить новый $\varphi_3 = \varphi_0 - \frac{\partial}{\partial x} \frac{Q}{4\Pi r}$. При некотором  $r$ данное выражение становится равно 0. Таким образом данный потенциал соответствует обтеканию шара
+
+\newpage 
+
+\begin{center}
+	\textit{\underline{Примеры плоских течений. }}
+	\\
+	\textit{\underline{Применение теории функции комплексного
+		 		переменного для решения задач плоского движения }}
+	 \\
+	 \textit{\underline{ идеальной несжимаемой жидкости. }}
+\end{center}
+
+Рассмотрим уравнение неразрывности в плоском случае 
+$$
+\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0
+$$
+Уравнение отсутствия вихря 
+$$
+rot \overrightarrow{v} = 
+\begin{vmatrix}
+	\overrightarrow{e_x} & \overrightarrow{e_y}  & \overrightarrow{e_z} \\
+	\frac{\partial }{\partial x} & \frac{\partial }{\partial y} & 0\\
+	u & v & 0\
+\end{vmatrix} = \overrightarrow{e_z} (\frac{\partial u}{\partial x} - \frac{\partial v}{\partial y} )
+$$
+
+\begin{wrapfigure}{r}{0.2\textwidth}
+	\includegraphics[width=0.2\textwidth]{14/pic_4.png}
+	\caption{\label{ris:image14.4}}
+\end{wrapfigure}
+
+таким образом получаем условия Коши-Римана 
+$$ \begin{cases}
+\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0  \ (\leftrightarrow \exists \psi)\\
+\frac{\partial u}{\partial x} - \frac{\partial v}{\partial y}  = 0 \ (\leftrightarrow \exists \varphi)
+\end{cases},$$
+
+можем ввести комплескную переменную $x = x + i y$, т. о. $v = u + iv$, второе равенство из условий К-Р
+$$ \begin{cases}
+	\frac{\partial \varphi}{\partial x} = u  = \frac{\partial \psi}{\partial y}\\
+	\frac{\partial \psi}{\partial y} = v = -\frac{\partial \varphi}{\partial x} 
+\end{cases},$$
+Таким образом получаем голоморфную функцию $w = \varphi + i \psi$. Если подставим в условие неразрывности , то получим $\Delta \varphi = 0$ , и при добавлении условия $\frac{\partial \varphi}{\partial n} |_C = 0 $ (условие непротекания), получим задачу Неймана. Здесь $C$ это просто контур.
+
+В свою очередь если подставить $\psi $ в уравнение отсутствия вихря получим задачу Дирихле
+$ \Delta \psi = 0 \quad \psi |_C = 0$
+
+
+
+Рассмотрим дифференциал $d \psi$
+$$
+d \psi = \frac{\partial \psi}{\partial x}  dx +  \frac{\partial \psi}{\partial y}  dy = -vdx + udy
+$$
+\begin{wrapfigure}{r}{0.21\textwidth}
+	\includegraphics[width=0.21\textwidth]{14/pic_5.png}
+	\caption{\label{ris:image14.5}}
+\end{wrapfigure}
+В свою очередь если $\psi = const $ (смысл линии - это линия тока), то $\frac{\partial x}{\partial u} = \frac{\partial y}{\partial v} $
+
+
+Что такое \sout{бит}  функция w ? $w = \varphi x + i \psi$ - функция $z$, переводит конформно плоскость $z$ в плоскость $w$ , где $w=w(z)$ - комплексный потенциал течения
+
+Во что перейдет контур $C$. По условию линия тока это константа. Пусть линия тока соответсвует $psi = q$, тогда контур в плоскости $w$ перейдет в отрезок (см. рисунок). То есть для решения задачи обтекания какого то плоского тела надо придумать функцию $w$, чтобы она сплющила тело до отрезка , лежащего на отрезке $\psi = 0$, на оси $\varphi$
+$$$$
+\newpage 
+
+\begin{wrapfigure}{r}{0.15\textwidth}
+	\includegraphics[width=0.15\textwidth]{14/pic_6.png}
+	\caption{\label{ris:image14.6}}
+\end{wrapfigure}
+
+
+
+Рассмотрим каким течениям соответствуют какие  ситуации (потенциалы).
+
+\begin{wrapfigure}{l}{0.15\textwidth}
+	\includegraphics[width=0.15\textwidth]{14/pic_7.png}
+	\caption{\label{ris:image14.7}}
+\end{wrapfigure}
+
+1. Однородное течение, $w_0 = \overline{v}_{\infty} z$  , где $ \overline{v}_{\infty}  = const$ . Что такое $w'$ ? Это голоморфная функция , поэтому $w' = \frac{\partial \varphi}{\partial x} + i \frac{\partial \psi}{\partial x}  = u - iv = \overline{v}$
+
+
+$w_0^{'} = \overline{v}_{\infty}$. В каждой точке скорость = const и равна $v_{\infty}$
+
+2. $w_1 = z^n = r^n e^{i \theta n} = r^n(\cos(n \theta) + i \sin (n \theta) )$.  
+
+Линии тока это $r^n \sin(n \theta) = const $ 
+
+Рис 6 : $n > 1$ , течение в таком углу 
+
+Рис 7: обтекание угла при $n < 1$ \\
+
+В данном случае можем применить , например , инверсию . Можем наоборот , прямые линии (из плоскости w) перейти в течение (плоскость z)
+
+$$ \begin{cases}
+	w  = \frac{\partial u}{\partial z}\\
+	z = -\frac{\partial u}{\partial w} 
+\end{cases},$$
+
+С помощью данного преобразования прямые линии на $w$ перейдут в окружности на $z$ . Причем окружности будут проходить через ноль. На самом деле получится диполь - см. рисунок 3.  
+
+3. $z = e^{q w}, \ q \in \mathbb{R} , \quad w = \varphi + i \psi$. Таким образом $z = e^{q \varphi} e^{i q \psi}$, при этом $e^{i q \psi} = const$, радиус при этом пробегаем все диагонали $\varphi$
+
+ Если $z$ чисто мнимое , то получаем течение - вихри. Соответствует рисунку 2.
+
+\begin{center}
+	\textit{\underline{Формула Жуковского.}}
+\end{center}
+
+\begin{wrapfigure}{r}{0.2\textwidth}
+	\includegraphics[width=0.2\textwidth]{14/pic_8.png}
+	\caption{\label{ris:image14.8}}
+\end{wrapfigure}
+
+Рассмотрим $w=v_{\infty}(z + \frac{R^2}{z})$. Оно переводит окружность круга радиуса $R$ на некоторый отрезок . $w' = v_{\infty} ( 1 -  \frac{R^2}{z^2})$ , $w' \rightarrow v_{\infty} $ на бесконечности. Линии тока ведут себя как на рисунке 8. 
+
+Также можем добавить к w функцию и рассмотреть следующий потенциал (круговые линии на рисунке 8 ) . Итого $w = v_{\infty}(z + \frac{R^2}{z}) + \frac{\Gamma}{2 \pi i} \ln z$. 
+
+\begin{wrapfigure}{l}{0.15\textwidth}
+	\includegraphics[width=0.15\textwidth]{14/pic_9.png}
+	\caption{\label{ris:image14.9}}
+\end{wrapfigure}
+$$ $$
+
+Вообще говоря $\Gamma$ произвольное, но надо выбрать единственное. По постулату Жуковского-Чаплыгина $\Gamma$ выбирается так чтобы в "острой", особенной точке скорость была равна нулю, то есть переходила в критическую точку. Таким образом можно выбрать единственное $\Gamma$. С гамма - циркуляцией получится картинка 9 с критической точкой (типа седло).
+
+\newpage
+\ \\
+
+Рассмотрим произвольную функцию $w(z)$ и разложим в ряд Лорана $w' = ... + \frac{c_{-2}}{z^2} + \frac{c_{-1}}{z} + c_0 + c_1 z + c_2 z^2 + ... $. При устремлении z к бексонечности $w'$ должно получиться равным сопряженной скорости, таким образом $c_1 = c_2 = 0$, а $c_0 = \bar{v}_{\infty}$
+
+Если взять циркуляцию от $w'$ , то получим $\Gamma = c_1 2 \pi i $ (по формуле) . $c_{-1} = \frac{\Gamma}{2 \pi i}$
+
+\begin{wrapfigure}{r}{0.15\textwidth}
+	\includegraphics[width=0.15\textwidth]{14/pic_9.png}
+	\caption{\label{ris:image14.10}}
+\end{wrapfigure}
+$$ $$
+
+Чему равна сила , с действующая на данное тело ? 
+
+Обозначим ее $R = X + i Y = - 	\oint \limits_{C} p \overrightarrow{n} d \overrightarrow{e} = - \oint \limits_{C} p e^(i\frac{pi}{2} + i\theta) d | \overrightarrow{e} |$ . Причем $p \in \mathbb{R}$
+
+Что такое $dz$ ? $dz = e^{i \theta} d | \overrightarrow{e} |$, $w'$  в свою очередь, $w' = u -i \varv$ -  комплесносопряженная скорость 
+
+Также вспомним интеграл Бернулли
+$$ \begin{cases}
+	p + p \frac{|v|^2}{2} = const \\
+	v = u + i \varv
+\end{cases},$$
+
+Интеграл по кругу от константы по контуру равен нулю 
+
+$- \oint \limits_{C} p e^(i\frac{pi}{2} + i\theta) d | \overrightarrow{e} | = -i \oint  \limits_{C} p dz = \frac{p i}{2} \oint  \limits_{C} |v|^2 dz =  \frac{p i}{2} \oint  \limits_{C} w' \bar{w}' d z$
+
+Далее подробнее рассмотрим $w'$ , $\bar{w}' = v, \ \bar{d z} = e^{-i \theta} |d \overrightarrow{e} |$
+
+$\bar{w}' \bar{dz} = |v| e^{i \theta} |d \overrightarrow{e} | e^{-i \theta} = w' dz$
+
+$w' = ... + \frac{c_2}{z^2} + \frac{c_1}{z} + c_0 \ \rightarrow \ w'^2 = ... + \frac{2 c_1 c_0}{z} + ...$. Нас интересуют только вычеты , смотрим где $\frac{1}{z}$ 
+
+В итоге получаем : 
+
+$\bar{R} =  \frac{p}{2 i} \oint \limits_{C} \bar{w}'  w'  \bar{d z} =  \frac{p}{2 i} \oint \limits_{C} w'^2 dz =   \frac{p}{2 i} 2 c_{-1} c_0 2 \pi i = \rho c_{-1} c_0 2 \pi$
+
+$ c_0 = \bar{v}_{\infty}$
+
+$c_{-1} = \frac{\Gamma}{2 \pi i} $
+
+Значит , $\bar{R} = - \rho \frac{\Gamma}{i} v_{\infty} $ (- на лекциях где-то потеряли, ну а я писал конспект по лекциям)
+
+В итоге , Формула Жуковского 
+
+$$
+R = -i \rho v_{\infty} \Gamma
+$$
+
+Если скорость направлена в точности по оси x (то есть действительная часть равна 0) , то 
+
+$X = 0$ - парадокс Даламбера , сила , действуюшая по направлению набегающей скорости равна нулю
+
+$Y = -\rho v_{\infty} \Gamma $ - подъемная сила. Сила , напраленная перпендикулярно набегающей скорости , пропорциональна скорости и завихренности . Чем больше завихренности крыла, тем больше сила . 
