@@ -1,2 +1,69 @@
 \newpage
 \section{Билет 8. Дифференциальные уравнения движения сплошной среды и момента количества движения. Симметрия тензора напряжения. Теорема живых сил.}
+\subsection{Дифференциальные уравнения движения}
+Закон сохранения количества движения: 
+$$\frac{d}{dt}  \int_{V} \rho \vec{v} \,dV =  \int_{V} \rho \vec{F} \,dV  + \int_{\Sigma} \vec{P_n} \,d\sigma $$
+
+$\vec{P_n} =  p^{ij}n_j \vec{e_i}$ - подставим это в правую часть и преобразуем последнее слагаемое по теореме Гаусса-Остроградского: 
+
+ % $$ \int_{\Sigma} \vec{P_n} \,d\sigma = \int_{\Sigma} p^{ij}n_j \vec{e_i} \,d\sigma $$
+
+
+$$\int_{\Sigma} p^{ij}n_j \vec{e_i} \,d\sigma = \int_{V} \nabla_j p^{ij} \vec{e_i}  \,dV \ \Rightarrow$$
+
+ $$\int_{V} (\rho \frac{d \vec{v}}{dt} -  \rho \vec{F}   -  \nabla_j p^{ij} \vec{e_i} ) \,dV = 0 \Rightarrow$$
+
+Подынтегральное выражение равно нулю - это и есть дифференциальные уравнения движения: 
+
+$$\rho \frac{d \vec{v}}{dt} =  \rho \vec{F}   +  \nabla_j p^{ij} \vec{e_i} $$
+
+\subsection{Дифференциальные уравнения момента количества движения}
+Закон сохранения момента количества движения: 
+
+$$\frac{d}{dt} ( \int_{V} \rho [\vec{r} \times \vec{v}] \,dV +   \int_{V} \rho \vec{k} \,dV )  =  \int_{V} \rho [\vec{r} \times \vec{F}] \,dV  +  \int_{V} \rho \vec{h} \,dV + \int_{\Sigma} [\vec{r} \times \vec{P_n}] \,d\sigma + \int_{\Sigma} \vec{M_n} \,d\sigma $$
+
+Преобразуем левую часть: 
+$$\frac{d}{dt} ( \int_{V} \rho [\vec{r} \times \vec{v}] \,dV +   \int_{V} \rho \vec{k} \,dV ) = \int_{V} \rho ([\vec{r} \times \frac{d\vec{v}}{dt}] + [\frac{d\vec{r}}{dt} \times \vec{v}] +  \frac{d \vec{k}}{dt} \big ) \,dV  $$
+
+Так как  $[\frac{d\vec{r}}{dt} \times \vec{v}] =  [\vec{v} \times \vec{v}] = 0$, то левая часть принимает следующий вид: 
+
+$$\int_{V} \rho ([\vec{r} \times \frac{d\vec{v}}{dt}] +  \frac{d \vec{k}}{dt} \big ) \,dV  $$
+
+Преобразуем правую часть с помощью теоремы Гаусса - Остроградского (аналогично дифф. уравн.): 
+
+\begin{itemize}
+    \item $\int_{\Sigma} [\vec{r} \times \vec{P_n}] \,d\sigma = \int_{\Sigma} [\vec{r} \times \vec{P^k}]n_k \,d\Sigma =  \int_{V} \nabla_k[\vec{r} \times \vec{P^k}] \,d\sigma  $
+
+    \item $ \int_{\Sigma} \vec{M_n} \,d\sigma = \int_{\Sigma} \vec{M^k}n_k \,d\sigma = \int_{V} \nabla_k\vec{M_k} \,dV $
+\end{itemize}
+
+Подставим все в закон сохранения момента количества движения и занесем все под один интеграл по объему V, приравниваем подынтегральное выражение к 0 и получаем дифференциальные уравнения момента количества движения: 
+$$ \rho ([\vec{r} \times \frac{d\vec{v}}{dt}] + \frac{d \vec{k}}{dt}) =   \rho ( [\vec{r} \times \vec{F}]  +  \vec{h} ) + \nabla_k[\vec{r} \times \vec{P^k}] + \nabla_k \vec{M^k}  $$
+
+Далее используем уравнения движения: заменяем $\frac{d\vec{v}}{dt}$ на $\rho \vec{F}   +  \nabla_k \vec{P^k} $ и получаем упрощенное выражение: 
+
+$$ \rho \frac{d \vec{k}}{dt} =  [(\nabla_k\vec{r}) \times \vec{P^k}] + \rho \vec{h} + \nabla_k \vec{M^k}  $$
+
+\subsection{Симметрия тензора напряжений}
+Пусть $\vec{k} = 0, \vec{h} = 0, \vec{M^k} = 0$, тогда из упрощенной формы уравнения движения: 
+
+$$[(\nabla_k\vec{r}) \times \vec{P^k}] = 0 \Rightarrow $$
+
+$$p^{ik}[\vec{e_k} \times  \vec{e_i}] = 0 \Rightarrow $$
+
+Учтем, что $[e_i \times e_i ] = 0$ и распишем сумму: 
+
+$$(p^{21} - p^{12}) [\vec{e_1} \times  \vec{e_2}] + (p^{32} - p^{23}) [\vec{e_2} \times  \vec{e_3}] + (p^{13} - p^{31}) [\vec{e_3} \times  \vec{e_1}]= 0 \Rightarrow $$ 
+
+Это линейно независимая комбинация, значит, коэффициенты = 0, то  есть 
+$$p^{ij} = p^{ji} $$
+
+\subsection{Теорема живых сил}
+Домножим скалярно на $\vec{v}$ дифференциальные уравнения движения: 
+
+$$\rho \frac{d \vec{v^2}/2}{dt} =  \rho (\vec{F}, \vec{v})   +  (\vec{v}, \nabla_j P^j) \Rightarrow $$
+
+$$\rho \frac{d \vec{v^2}/2}{dt} =  \rho (\vec{F}, \vec{v})   +  
+ \nabla_j (\vec{v},  P^j) -  (\nabla_j \vec{v},  P^j)$$
+
+Это и есть теорема живых сил. Слева стоит макроскопическая кинетическая энергия и эта теорема показывает причины изменения кинетической энергии.
