@@ -19,13 +19,23 @@
 \usepackage{pdfpages}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
-
+\usepackage[normalem]{ulem}
+\usepackage{subcaption}
+\usepackage{txfonts}
+\usepackage{accents}
 
 \usetikzlibrary{decorations.pathreplacing}
 \usepackage[a4paper, mag=1000, includefoot, left=1.5cm, right=1.5cm, top=1cm, bottom=1cm, headsep=1cm, footskip=1cm]{geometry}
 \usepackage{tikz}
 \newcommand{\RNumb}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
 \usetikzlibrary{graphs}
+
+\def\Div{\mathop{\rm div}\nolimits}
+\def\Grad{\mathop{\rm grad}\nolimits}
+\def\Const{\mathop{\rm const}\nolimits}
+
+\def\dd#1#2{\dfrac{\partial#1}{\partial#2}}
+\newcommand\arcsup[1]{\accentset{\circ}{#1}}
 
 \theoremstyle{definition}
 \newtheorem{defn}{Определение}[section]

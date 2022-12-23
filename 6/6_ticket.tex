@@ -1,2 +1,146 @@
 \newpage
 \section{Билет 6. Производная по времени от интеграла по подвижному объему. Уравнение неразрывности в переменных Эйлера и Лагранжа.}
+\begin{center}
+    \textit{\underline{Закон сохранения массы для индивидуального объема сплошной среды}}
+\end{center}
+
+Закон сохранения массы утверждает, что \textbf{масса M любого индивидуального объема сплошной среды постоянна}:
+\begin{center}$
+M = const
+$\end{center}
+\textbf{Индивидуальным объемом} называют выделенную часть среды, состоящую из одних и тех же индивидуальных частиц. В механике сплошных сред интерес представляет не столько масса некоторогообъема, сколько распредление массы по объему, которое характеризируется распределением плотности. Определим понятие плотности. Рассмотрим малый объем $\Delta {V}$ с массой $\Delta m$. Средняя плотность этого объема равна:
+\begin{center}$
+\rho_{ср} = \frac{\Delta m}{\Delta V}
+$\end{center}
+
+Плотность $\rho$ в точке среды определяется как предел этого отношения, когда $\Delta V$ стягивается в рассматриваемую точку:
+\begin{center}$
+\rho = \lim\limits_{\Delta V \to 0} \frac{\Delta m}{\Delta V}
+$\end{center}
+
+Масса в объеме $V$ равна:
+\begin{center}$
+M = \int\limits_V \rho dV
+$\end{center}
+
+\textbf{Закон сохранения массы для конечного индивидуального объема сплошной среды $V_{инд}$} гласит:
+\begin{center}$
+\frac{d}{dt} \int\limits_{V_{инд}(t)} \rho dV = 0
+$\end{center}
+
+$V_{инд}(t)$ - индивидуальный, в общем случае, подвижный объем.
+
+\begin{center}
+    \textit{\underline{Производная по времени от интеграла по подвижному индивидуальному объему}}
+\end{center}
+Выведем формулу дифференцирования по времени интеграла по подвижному объему $V(t)$ от некоторой величины $A(x^i, t)$. По определния производной имеем:
+\begin{center}$
+\frac{d}{dt} \int\limits_{V(t)} A(x^i,t) dV =
+\lim\limits_{\Delta t \to 0} \frac{\int\limits_{V(t + \Delta t)} A(x^i,t + \Delta t)dV - \int\limits_{V(t)}A(x^i,t)dV}{\Delta t}
+$\end{center}
+В правой части вычтем и прибавим одно и то же слагаемое:
+\begin{center}$
+\int\limits_{V(t + \Delta t)} A(x^i, t)dV
+$\end{center}
+Тогда получим
+\begin{center}$
+\frac{d}{dt} \int\limits_{V(t)} A(x^i,t) dV
+=\newline
+\lim\limits_{\Delta t \to 0} \frac{\int\limits_{V(t + \Delta t)} A(x^i,t + \Delta t)dV - \int\limits_{V(t + \Delta t)}A(x^i,t)dV}{\Delta t}
++
+\lim\limits_{\Delta t \to 0} \frac{\int\limits_{V(t + \Delta t)} A(x^i,t)dV - \int\limits_{V(t)}A(x^i,t)dV}{\Delta t}
+=\newline
+\lim\limits_{\Delta t \to 0}\int\limits_{V(t + \Delta t)} \frac{A(x^i, t + \Delta t) - A(x^i, t)}{\Delta t}dV
++
+\lim\limits_{\Delta t \to 0}\frac{1}{\Delta t}\int\limits_{V(t + \Delta t) - V(t)}A(x^i, t)dV
+$\end{center}
+Первое слагаемое в последней сумме равно:
+\begin{center}$
+\int\limits_{V(t)}\frac{\partial A}{\partial t}dV
+$\end{center}
+Для вычисления второго слагаемого разбиваем область $V(t + \Delta t) - V(t)$ на сумму $N$ малых цилиндров с основаниями $\Delta \sigma_k$, представляющими собой элементы поверхности $\Sigma$ объема $V(t)$, и длинами образующих $|\Vec{v}|\Delta
+t$. Объем элементарного цилиндра равен произведению площади основания на высоту:
+\begin{center}$
+\Delta V_k = \Delta \sigma_k v_{n_k} \Delta t,
+$\end{center}
+где $v_{n_k}$ - проекция скорости на нормаль к площадке $\Delta \sigma_k$. Интеграл по области $V(t + \Delta t) - V(t)$ можно представить как соответсвующий предел суммы произведений значений подинтегральной функции в точках элементарных цилиндров на объемы этих цилиндров. Тогда второе слагаемое вычисляется так:
+\begin{center}$
+\lim\limits_{\Delta t \to 0} \frac{1}{\Delta t}\lim\limits_{N \to \infty}\sum_{k=1}^{N}A(x_k^i,t)v_{n_k}\Delta t \Delta \sigma_k
+=
+\int\limits_{\Sigma}Av_n d\sigma
+$\end{center}
+где $\Sigma$ - поверхность объема V(t)
+
+Итак, \textbf{формула дифференцирования по времени интеграла по подвижному объему} выглядит так:
+\begin{equation}
+    \frac{d}{dt}\int\limits_{V(t)}A dv= \int\limits_V \frac{\partial A}{\partial t} dV + \int\limits_{\Sigma}A v_n d\sigma
+\end{equation}
+С использованием формулы (1) \textbf{закон сохранения массы} может быть записан в виде:
+\begin{equation}
+    \int\limits_V \frac{\partial \rho}{\partial t} dV + \int\limits_{\Sigma}\rho v_n d \sigma = 0
+\end{equation}
+
+\begin{center}
+    \textit{\underline{Дифференциальное уравнение неразрывности - следствие закона сохранения массы}}
+\end{center}
+Диффренциальное уравнение, которое выводится из закона сохранения массы, называется \textbf{уравнением неразрывности}. Для вывода уравнения неразрывности нужно преобразовать поверхностный интеграл в соотношении (2) в объемный. Пусть $\rho, \Vec{v}$ непрерывны и дифференцируемы в $V$. Применяем формулу Гаусса-Остроградского. В декартовой системе координат имеем
+\begin{center}$
+\int\limits_{\Sigma} \rho v_n d \sigma
+= \int\limits_{\Sigma} (\rho v_x cos \hat{(n,x)} + \rho v_y cos \hat{(n,y)} + \rho v_z cos \hat{(n,z)})d \sigma
+=\newline
+\int\limits_V ( \frac{\partial \rho v_x}{\partial x} + \frac{\partial \rho v_y}{\partial y} + \frac{\partial \rho v_z}{\partial z})dV
+=
+\int\limits_V (div \rho \Vec{v})dV
+$\end{center}
+Следовительно, для непрерывного движения закон сохранения массы может быть записан в виде:
+\begin{center}$
+\int\limits_V (\frac{\partial \rho}{\partial t} + div \rho \Vec{v})dV = 0
+$\end{center}
+Так как это равенство должно выполняться для любого объема, то если подынтегральное выражение непрерывно, то оно должно равняться нулю. Получаем
+\textbf{уравнение неразрывности при эйлеровом описании}:
+\begin{equation}
+    \frac{\partial \rho}{\partial t} + div (\rho \Vec{v}) = 0
+\end{equation}
+Напомним, что в произвольной системе координат
+\begin{center}$
+div \rho \Vec{v} = \nabla_i(\rho v^i)
+$\end{center}
+В декартовых координатах уравнение неразрывности записывается так:
+\begin{center}$
+\frac{\partial \rho}{\partial t} + \frac{\partial \rho v_x}{\partial x} + \frac{\partial \rho v_y}{\partial y} + \frac{\partial \rho v_z}{\partial z} = 0
+$\end{center}
+или
+\begin{center}$
+\frac{\partial \rho}{\partial t} + v_x \frac{\partial \rho}{\partial x} + v_y \frac{\partial \rho}{\partial y} + v_z \frac{\partial \rho}{\partial z} + \rho div (\Vec{v}) = 0
+$\end{center}
+Полная (ииндивидуальная) производная по времени $\frac{d \rho}{d t}$ определяется формулой
+\begin{center}$
+\frac{d \rho}{d t} = \frac{\partial \rho}{\partial t} + v_x \frac{\partial \rho}{\partial x} + v_y \frac{\partial \rho}{\partial y} + v_z \frac{\partial \rho}{\partial z}
+$\end{center}
+поэтому \textbf{уравнение неразрывности} можно записать так:
+\begin{equation}
+    \frac{d \rho}{d t} + \rho div(\Vec{v}) = 0
+\end{equation}
+Уравнения (3) и (4) представляют собой две различные формы уравнения неразрывности в эйлеровых переменных.
+
+\begin{center}
+    \textit{\underline{Уравнение неразрывности в лагранжевых координатах}}
+\end{center}
+Уравнение неразрывности следует из закона сохранения массы. В эйлеровых (пространственных) координатах оно имеет вид:
+\begin{equation}
+    \frac{d \rho}{d t} + \rho div(\Vec{v}) = 0
+\end{equation}
+где
+\begin{center}$
+\frac{d \rho}{d t} = \frac{\partial \rho}{\partial t} + v^k \nabla_k \rho,
+\nabla_k \rho = \frac{\partial \rho}{\partial x^k}
+$\end{center}
+В лагранжевых координатах $\xi^i$ индивидуальная производная плотности по времени есть просто частная производная:
+\begin{center}$
+\frac{d \rho}{d t}  = \frac{\partial \rho (t, \xi)}{\partial t}
+$\end{center}
+(через $\xi$ обозначен набор $\xi^1$, $\xi^2$, $\xi^3$). Поэтому уравнение (5) записывается в лагранжевых координатах так:
+\begin{equation}
+    \frac{\partial \rho (t, \xi)}{\partial t} + \rho div(\Vec{v}) = 0
+\end{equation}
+Это один из видов уравнения неразрывности в лагранжевых координатах.
