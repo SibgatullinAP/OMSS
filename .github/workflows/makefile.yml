@@ -1,0 +1,35 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build_pdf:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install and update pdflatex
+      run: sudo apt-get update && sudo apt-get install texlive-latex-base texlive-lang-cyrillic texlive-extra-utils texlive-latex-extra texlive-science
+      
+    - name: Checkout
+      uses: actions/checkout@v3
+    
+    - name: Convert to pdf
+      run: make -i
+      
+    - run: ls
+      #Move PDFs to separate folder
+    - run: mkdir output
+    - run: mv tickets_main.pdf output/tickets.pdf
+    - run: mv course_programm.pdf output/course_programm.pdf
+     
+    - name: Save PDFs
+      uses: actions/upload-artifact@v3.1.0
+      with:
+        name: Tickets
+        path: output/*.pdf
+        retention-days: 90
