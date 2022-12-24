@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - name: Install and update pdflatex
-      run: sudo apt-get update && sudo apt-get install texlive-latex-base texlive-lang-cyrillic texlive-extra-utils texlive-latex-extra texlive-science
+      run: sudo apt-get update && sudo apt-get install texlive-latex-base texlive-lang-cyrillic texlive-extra-utils texlive-latex-extra texlive-science texlive-fonts-extra
       
     - name: Checkout
       uses: actions/checkout@v3
