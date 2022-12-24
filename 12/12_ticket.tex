@@ -14,18 +14,18 @@
 \end{center}
 Запишем эти уравнения в несколько другом виде. Легко видеть, что усорение всегда возможно написать в следующей форме:
 \begin{center}
-	$\frac{dv}{dt} = \frac{\partial v}{\partial t} + grad(\frac{v^2}{2}) + 2 w \times v$
+	$\frac{d \vec{v}}{dt} = \frac{\partial \vec{v}}{\partial t} + grad(\frac{\vec{v}^2}{2}) + 2 \omega \times \vec{v}$
 \end{center}
-Где $w$ - вектор вихря.
+Где $\omega$ - вектор вихря.
 
-Используя декартовую систему координат, спроецируем вектор ускорения на ось x.
+Пояснение: используя декартову систему координат, для проекции ускорения на ось x имеем:
 \begin{center}
-	$\frac{du}{dt} = \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} + w \frac{\partial u}{\partial z} = \frac{\partial u}{\partial t} + \frac{1}{2}\frac{\partial}{\partial x}(u^2 + v^2 + w^2) - (\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}) v + (\frac{\partial u}{\partial z} - \frac{\partial w}{\partial x})w = \frac{\partial u}{\partial x} + \frac{1}{2}\frac{\partial v^2}{\partial x} + 2(\omega_yw - \omega_zv) = \frac{\partial u}{\partial t} + \frac{1}{2}\frac{\partial v^2}{\partial x} + 2(\omega \times v)_x$
+	$\frac{du}{dt} = \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} + w \frac{\partial u}{\partial z} = \frac{\partial u}{\partial t} + \frac{1}{2}\frac{\partial}{\partial x}\left(u^2 + v^2 + w^2\right) - (\frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}) v + (\frac{\partial u}{\partial z} - \frac{\partial w}{\partial x})w = \frac{\partial u}{\partial x} + \frac{1}{2}\frac{\partial \vec{v}^2}{\partial x} + 2(\omega_yw - \omega_zv) = \frac{\partial u}{\partial t} + \frac{1}{2}\frac{\partial \vec{v}^2}{\partial x} + 2(\omega \times v)_x$
 \end{center}
 
-Производя аналогичные вычисления для других осей, получаем в итоге следующее уравнение.
+Производя аналогичные вычисления для других осей и подставляя в уравнения Эйлера, получаем следующие уравнения.
 \begin{center}
-	$\frac{\partial v}{\partial t} + \frac{1}{2}grad(v^2) + 2(\omega\times v) = F - \frac{1}{\rho}grad(p)$
+	$\frac{\partial \vec{v}}{\partial t} + \frac{1}{2}grad(\vec{v}^2) + 2(\omega\times \vec{v}) = F - \frac{1}{\rho}grad(p)$
 \end{center}
 Получаем \underline{Уравнения движения в форме Громека-Лэмба}
 \begin{center}
@@ -33,12 +33,12 @@
 \end{center}
 Запишем уравнения движения эйлера в форме Громеки-Лэмба.
 \begin{center}
-	$\frac{\partial v}{\partial t} + \frac{1}{2}grad(v^2) + 2(\omega\times v) = F - \frac{1}{\rho}grad(p)$
+	$\frac{\partial \vec{v}}{\partial t} + \frac{1}{2}grad(\vec{v}^2) + 2(\omega\times \vec{v}) = F - \frac{1}{\rho}grad(p)$
 \end{center}
-Будем считать что мы рассматриваем движение идеального газа или жидкости в случае установившихся движений. Поскольку движение установшееся то имеем что $\frac{\partial v}{\partial t} = 0$. Помимо этого предположим что внешние силы обладают потенциалом $F = grad(U)$
+Будем считать что мы рассматриваем движение идеального газа или жидкости в случае установившихся движений. Поскольку движение установшееся, то имеем что $\frac{\partial \vec{v}}{\partial t} = 0$. Помимо этого предположим что внешние силы обладают потенциалом $F = grad(U)$.
 Введем в потоке жидкости кривую L и введем вдоль нее направление отчета длины l, начиная от некоторой точки O. Заданием l будут фиксироваться точки на L. Через dl обозначим элемент касательной к линии L в произвольной точке M. С учетом сделанных предположений получаем:
 \begin{center}
-	$\frac{\partial}{\partial l}(\frac{v^2}{2}) + \frac{1}{\rho} \frac{\partial p}{\partial l} - \frac{\partial U}{l} = -2(w\times v)$
+	$\frac{\partial}{\partial l}\left(\frac{v^2}{2}\right) + \frac{1}{\rho} \frac{\partial p}{\partial l} - \frac{\partial U}{l} = -2(w\times v)$
 \end{center}
 Вдоль этой линии плотность и давление являются функциями от длины l. Причем они будут разные для различных линий L. Поэтому имеем.
 \begin{center}
@@ -80,17 +80,17 @@
 \begin{center}
 	$\frac{\partial v}{\partial t} + \frac{1}{2}grad(v^2) + 2(\omega\times v) = F - \frac{1}{\rho}grad(p)$
 \end{center}
-Пусть движение потенциально (w = 0, $v = grad(\phi)$), имеет место баротропия $p = p(\rho)$ а значит, можно ввести единую для всего потока функцию давления:
+Пусть движение потенциально (\omega = 0, $\vec{v} = grad(\phi)$), имеет место баротропия $p = p(\rho)$ а значит, можно ввести единую для всего потока функцию давления:
 \begin{center}
 	$P(p) = \int \frac{dp}{\rho(p)}, \frac{1}{\rho}grad(p) = grad(P)$
 \end{center}
 При этих предположениях, уравнение Громеки-Лэмба записывается в виде
 \begin{center}
-	$grad(\frac{\partial\phi}{\partial t} + \frac{v^2}{2} + P) = F$
+	$grad(\frac{\partial\phi}{\partial t} + \frac{\vec{v}^2}{2} + P) = F$
 \end{center}
 В итоге получаем:
 \begin{center}
-	$\frac{\partial\phi}{\partial t} + \frac{v^2}{2} + P - U = f(t)$
+	$\frac{\partial\phi}{\partial t} + \frac{\vec{v}^2}{2} + P - U = f(t)$
 \end{center}
 где $f(t)$ - некоторая произвольная функция от времени.
-Последнее сотношение, выполняющееся для всех точек области потенциального движения называется \underline{интегреал Коши-Лагранжа}
+Последнее сотношение, выполняющееся для всех точек области потенциального движения называется \underline{интегрaлом Коши-Лагранжа}
