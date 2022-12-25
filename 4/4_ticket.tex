@@ -17,12 +17,14 @@ $$
 
 Рассмотрим ранее расписанное приращение $\Delta \varepsilon_{ij}$ и подставим в его определение тензора скоростей деформаций. В итоге получим:
 
-$$e_{ij} = \frac{d \hat g_{ij}}{d t}$$
+$$e_{ij} = \frac{1}{2} \frac{d \hat g_{ij}}{d t}$$
 
 \begin{center}
 	\textit{\underline{Выражение компонент тензора через компоненты вектора скорости}}
 \end{center}
-Вспомним, что $\varepsilon_{ij} = \frac{1}{2} \left(\nabla_{i}w_{j} + \nabla_{j}w_{i} \right)$ (Или в нотации частных производных: $\frac{1}{2} \left(\partial_{i}w_{j} + \partial_{j}w_{i} \right)$). Пусть вектор перемещений $\overrightarrow{w} = \overrightarrow{v} \Delta t$, тогда имеем:
+Вспомним, что $\varepsilon_{ij} = \frac{1}{2} \left(\nabla_{i}w_{j} + \nabla_{j}w_{i} \right)$ (Или в нотации частных производных: $\frac{1}{2} \left(\partial_{i}w_{j} + \partial_{j}w_{i} \right)$).
+
+Вектор перемещаений между состояними в моменты времени $t$ и $\Delta t$ обозначим $\Delta \overrightarrow{w}$, тогда:
 
 $$\Delta \varepsilon_{ij} = \frac{1}{2} \left(\nabla_{i}\Delta w_{j} + \nabla_{j}\Delta w_{i} \right)$$
 
@@ -33,10 +35,19 @@ $$e_{ij} = \frac{1}{2} \left(\nabla_{i}v_{j} + \nabla_{j}v_{i}\right)$$
 \begin{center}
 	\textit{\underline{Кинематический смысл}}
 \end{center}
-Механический смысл компонент тензора скоростей деформаций в декартовой системе следует из формулы $e_{ij} = \lim\limits_{\Delta t \rightarrow 0} \frac{\varepsilon_{ij}}{\Delta t}$. Ранее было показано, что диагональные компоненты тензора малых деформаций равны коэффициентам относительного удлинения отрезков, лежавших до деформации вдоль соответствующих осей (если система координат декартова). Следовательно, механический смысл диагональных компонент тензора скоростей деформаций - скорость удлинения (сокращения) отрезка. Аналогично, вне диагональные элементы - половина скоростей изменения углов между отрезками. 
+Механический смысл компонент тензора скоростей деформаций в декартовой системе следует из формулы $e_{ij} = \lim\limits_{\Delta t \rightarrow 0} \frac{\Delta \varepsilon_{ij}}{\Delta t}$. Ранее было показано, что диагональные компоненты тензора малых деформаций равны коэффициентам относительного удлинения отрезков, лежавших до деформации вдоль соответствующих осей (если система координат декартова). Следовательно, механический смысл диагональных компонент тензора скоростей деформаций - скорость удлинения (сокращения) отрезка. Аналогично, вне диагональные элементы - половина скоростей изменения углов между отрезками. 
 
 \begin{center}
 	\textit{\underline{Дивергенция скорости}}
 \end{center}
-Так как $\varepsilon_{ii} = \frac{1}{2} \left(\nabla_{i}v_{i} + \nabla_{i}v_{i} \right) = \nabla_{i}v_{i}$
-$$div \overrightarrow{v} = \sum\limits_{i} \nabla_{i} v^i = \sum\limits_{i} \varepsilon^{i}_{i}$$
+
+Коэффициент относительного объёма
+$ \Delta \theta = \lim\limits_{\Delta V \rightarrow 0} \frac {\Delta (t + \Delta t) - \Delta V(t)}{\Delta V(t)} $
+при малых деформаициях будет $ \Delta \theta = I_1 (\Delta \varepsilon_{ij}) = g^{ij} \Delta \varepsilon_{ij} $, тогда
+
+$$ \lim\limits_{\Delta t \rightarrow 0} \frac{\Delta \theta}{\Delta t} = \lim\limits_{\Delta t \rightarrow 0} \frac{g^{ij} \Delta \varepsilon_{ij}}{\Delta t} = g^{ij} e_{ij} = I_1 (e_{ij}) $$
+
+$$ I_1 (e_{ij}) =  g^{ij} e_{ij} = \frac{1}{2} g^{ij} \left(\nabla_{i}v_{j} + \nabla_{j}v_{i}\right) = \frac{1}{2} \left(\nabla_{i}v^{i} + \nabla_{j}v^{j}\right) = \nabla_{i}v^{i} = div \overrightarrow{v}$$
+
+Таким образом, скорость относительного изменения объёма равна дивергенции сокрости:
+$$ \lim\limits_{\Delta t \rightarrow 0} \frac{\Delta \theta}{\Delta t} = \sum\limits_{i} e^{i}_{i} = \nabla_{i}v^{i} = div \overrightarrow{v}$$
