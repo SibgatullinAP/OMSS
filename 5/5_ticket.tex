@@ -1,2 +1,103 @@
 \newpage
 \section{Билет 5. Распределение скоростей в малой окрестности точки сплошной среды (Формула Коши-Гельмгольца). Вектор вихря. Потенциальность течения.}
+
+\begin{center}
+	\textit{\underline{Формула Коши-Гельмгольца}}
+\end{center}
+
+Рассмотрим некоторую точку $M$ сплошной среды с координатами $x^i$ и ее малую окрестность. Пусть точка $M'$ с координатами $x^i + dx^i$ - некоторая произвольная точка из окрестности $M$. Тогда с помощью формулы Тейлора распишем скорость в точке $M'$:
+$
+\vec{v} (M') = \vec{v} (x^i + dx^i) = \vec{v}(x^i) + \frac{\partial \vec{v}}{\partial x^i}dx^i = \vec{v} (M) + \nabla_i v_j dx^i \vec{\text{э}}^j = \vec{v} (M) + \frac{1}{2}(\nabla_i v_j  + \nabla_j v_i)dx^i \vec{\text{э}}^j + \frac{1}{2}(\nabla_i v_j  - \nabla_j v_i)dx^i \vec{\text{э}}^j (*)
+$, где $\vec{\text{э}}^j$ - контрвариантные вектора базиса. Известно, что $\frac{1}{2}(\nabla_i v_j + \nabla_j v_i) = e_{ij}$ - компоненты тензора скорости деформации.
+
+\defn \textbf{Компоненты тензора вихря} -- $ \omega_{ij} := \frac{1}{2}(\nabla_i v_j - \nabla_j v_i)$
+
+\defn \textbf{Вектор вихря} -- $\omega^k := \frac{1}{\sqrt{g}}\omega_{ij}$, где  $(i, j, k)$ - круговая перестановка из $(1, 2, 3)$.
+
+\state \textbf{Формула Коши-Гельмгольца}: Пусть известна скорость частицы в точке $M$, тогда для частицы в точке $M'$ (из окрестности $M$) верно следующее: $\vec{v}(M') = \vec{v}(M) + e_{ij}dx^i \vec{{\text{э}}}^j + [\omega \times d\vec{r}]$. 
+
+Доказательство:
+1. Проверим, что:
+\begin{equation*}
+	\omega_{ij}dx^i \vec{\text{э}}^j = [\omega \times d\vec{r}] = \sqrt{g}
+	\begin{vmatrix}
+		\vec{\text{э}}^1 & \vec{\text{э}}^2 & \vec{\text{э}}^2\\
+		\omega^1 & \omega^2 & \omega^3\\
+		dx^1 & dx^2 & dx^3
+	\end{vmatrix}
+	(**)
+\end{equation*}
+
+Вычислим компоненту при $\vec{\text{э}}^1$:
+$$\omega_{i1}dx^i = \omega_{21}dx^2 + \omega_{31}dx^3 = -\sqrt{g}(\omega^3 dx^2 - \omega^2dx^3)$$
+
+Аналогичным образом получаются остальные компоненты $\vec{\text{э}}^j$, таким образом $(**)$ верно. Подстановкой $(**)$ в $(*)$ получается искомая формула Коши-Гельмгольца.
+
+На основе \textbf{формулы Коши-Гельмгольца} можно сформулировать \textbf{теорему Коши-Гельмгольца}.
+
+\theorem \textbf{Коши-Гельмгольца}: Движение малой частицы сплошной среды можно представить как сумму:
+\begin{enumerate}
+	\item Поступательного движения со скоростью $\vec{v}(M)$
+	\item Вращение как твердого тела с угловой скоростью $\vec{\omega}$
+	\item Движения, связанного с деформированием, которое описывается скоростью $e_ijdx^i \vec{\text{э}}^j$
+\end{enumerate}
+
+\begin{center}
+	\textit{\underline{Вектор вихря}}
+\end{center}
+
+Определение \textbf{Вектора вихря} было введено выше, далее рассмотрим некоторые его свойства и утверждения связанные с ним.
+
+\textbf{Механический смысл вектора вихря} следует из формулы Коши-Гельмгольца и заключается в следующем: Если частицы движутся как твердое тело, то $\vec{\omega}$ - это угловая скорость этого тела. 
+
+\defn Движение называется \textbf{безвихревым}, если $\vec{\omega} = 0$
+
+\state $\vec{\omega} = \frac{1}{2}rot\, \vec{v}$
+
+Доказательство: По определению ротором вектора $\vec{v}$ называется велчина:
+\begin{equation*}
+	\vec{v} = \frac{1}{\sqrt{g}}
+	\begin{vmatrix}
+		\vec{\text{э}}^1 & \vec{\text{э}}^2 & \vec{\text{э}}^2\\
+		\nabla^1 & \nabla^2 & \nabla^3\\
+		v_1 & v_2 & v_3
+	\end{vmatrix}
+\end{equation*}
+
+Из этого определения видно, что для первой компоненты вектора вихря верно равенство:
+$$
+\frac{1}{2}(rot\, \vec{v})^1 = \frac{1}{2 \sqrt{g}} (\nabla_2v_3 - \nabla_3 v_2) = \omega^1
+$$
+
+\begin{center}
+	\textit{\underline{Потенциальность течения}}
+\end{center}
+
+
+\defn \textbf{Потенциалом скорости} называется такая функция $\varphi$, что для скорости $\vec{v}$ верно:
+
+$$
+\vec{v} = grad\, \varphi\, (\text{то есть}\, v_i = \nabla_i \varphi = \frac{\partial \varphi}{\partial x^i})
+$$
+
+\defn Движение называтеся \textbf{потенциальным}, если существует потенциал скорости.
+\state $\exists \varphi : \vec{v} = grad\, \varphi$ тогда и только тогда $\vec{\omega} = 0$
+
+Доказательство:
+1) $(=>)$ Пусть $\exists \varphi : \vec{v} = grad \, \varphi$, тогда:
+
+$
+\omega_x = \frac{1}{2}(\frac{\partial v_z}{\partial y} - \frac{\partial v_y}{\partial z}) = \frac{1}{2}(\frac{\partial}{\partial y}(\frac{\partial \varphi}{\partial z}) - \frac{\partial}{\partial z}(\frac{\partial \varphi}{\partial y})) = \frac{1}{2} (\frac{\partial^2 \varphi}{\partial y \partial z} - \frac{\partial^2 \varphi}{\partial z \partial y}) = 0
+$ 
+
+2) $(<=)$ Пусть $\vec{\omega} = 0$, тогда рассмотри дифференциальную форму $v_xdx + v_ydy + v_zdz$, она представляет из себя полный дифференциал некоторой функции, тогда и только тогда когда:
+$$
+\frac{\partial v_z}{\partial y} = \frac{\partial v_y}{\partial z}, \frac{\partial v_x}{\partial z} = \frac{\partial v_z}{\partial x}, \frac{\partial v_y}{\partial x} = \frac{\partial v_x}{\partial y} 
+$$
+
+Но эти условия выполнены, если $\vec{\omega} = 0$. Таким образом при $\vec{\omega} = 0$
+$v_xdx + v_ydy + v_zdz = d\varphi$, отсюда следует, что 
+
+$$
+v_x = \frac{\partial \varphi} {\partial x}, v_y = \frac{\partial \varphi} {\partial y}, v_z = \frac{\partial \varphi} {\partial z}
+$$ то есть $\vec{v} = grad\varphi$
